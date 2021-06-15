@@ -15,12 +15,9 @@ def home():
 
 @app.route("/scrape")
 def scrape():
+    
     data = scrape_mars.scrape()
-
-   
     mongo.db.collection.update({}, data, upsert=True)
-
-
     return redirect("/")
 
 
